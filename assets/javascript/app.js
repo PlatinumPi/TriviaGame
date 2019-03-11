@@ -2,11 +2,11 @@ var myQuestions = [
     {
         question: "What is the color of the sky?",
         answers: {
-            a: 'Green',
-            b: 'Blue',
+            a: 'Blue',
+            b: 'Green',
             c: 'Purple'
         },
-        correctAnswer: 'b'
+        correctAnswer: 'a'
     },
     {
         question: "Who is famous for their discovery of AC power?",
