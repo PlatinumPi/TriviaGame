@@ -46,7 +46,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
             answers = [];
 
             for (letter in questions[i].answers) {
-                answers.push('<label class="container-check">' + '<input type="radio" name="question' + i + '" value="' + letter + '">' + questions[i].answers[letter] + '<span class="checkmark"></span></label>');
+                answers.push('<label class="container-check">' + '<input type="radio" name="question' + i + '" value="' + letter + '" class="listen">' + questions[i].answers[letter] + '<span class="checkmark"></span></label>');
             }
 
             output.push('<div class="question"><h2>' + questions[i].question + '</h2></div>'
@@ -69,51 +69,97 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
             userAnswer = (answerContainers[i].querySelector('input[name=question' + i + ']:checked') || {}).value;
 
             if (userAnswer === questions[i].correctAnswer) {
+
                 numCorrect++;
+
                 answerContainers[i].style.color = 'green';
+
             }
 
             else {
+
                 answerContainers[i].style.color = 'red';
+
             }
+
         }
 
         resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+
     }
 
     showQuestions(questions, quizContainer);
 
     submitButton.onclick = function () {
+
+        stop();
         showResults(questions, quizContainer, resultsContainer);
-    }
-
-}
-
-var display = document.getElementById('display');
-display.append('00:00');
-
-function timeConverter(t) {
-
-    var minutes = Math.floor(t / 60);
-    var seconds = t - (minutes * 60);
-
-    if (seconds < 10) {
-
-        seconds = '0' + seconds;
 
     }
 
-    if (minutes === 0) {
+    var intervalId;
+    var clockRunning = false;
+    var time = (myQuestions.length) * 6;
+    var timeLeft = timeConverter(time);
 
-        minutes = '00';
+    var display = document.getElementById('display');
+    display.append(timeLeft);
 
-      }
-    
-      else if (minutes < 10) {
+    function start() {
 
-        minutes = '0' + minutes;
+        clockRunning = true;
+        intervalId = setInterval(count, 1000);
 
-      }
-    
-      return minutes + ":" + seconds;
+    }
+    start();
+
+    function stop() {
+
+        clearInterval(intervalId);
+        clockRunning = false;
+
+    }
+
+    function count() {
+
+        time--;
+
+        var currentTime = timeConverter(time);
+
+        var update = document.getElementById('display');
+        update.innerHTML = "";
+        update.append(currentTime);
+        if (currentTime == '00:00') {
+            stop();
+            showResults(questions, quizContainer, resultsContainer);
+        }
+
+    }
+
+    function timeConverter(t) {
+
+        var minutes = Math.floor(t / 60);
+        var seconds = t - (minutes * 60);
+
+        if (seconds < 10) {
+
+            seconds = '0' + seconds;
+
+        }
+
+        if (minutes === 0) {
+
+            minutes = '00';
+
+        }
+
+        else if (minutes < 10) {
+
+            minutes = '0' + minutes;
+
+        }
+
+        return minutes + ":" + seconds;
+    }
+
 }

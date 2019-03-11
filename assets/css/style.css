@@ -132,7 +132,7 @@ h1 {
 #display-container {
     text-align: center;
 }
-/* End of Display Container customization */
+/* END OF DISPLAY CONTAINER CUSTOMIZATION */
 
 /* Start of Submit Button customization */
 #submit{
@@ -153,3 +153,9 @@ h1 {
     color: #ff7100;
 }
 /* END OF SUBMIT BUTTON CUSTOMIZATION */
+
+/* Start of answers customization */
+#answers {
+    color: #484848;
+}
+/* END OF ANSWERS CUSTOMIZATION */
