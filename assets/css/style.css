@@ -70,10 +70,10 @@ h1 {
   }
   
   .container-check .checkmark:after {
-       top: 9px;
-      left: 9px;
-      width: 8px;
-      height: 8px;
+       top: 8px;
+      left: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: #fff;
   }
@@ -94,6 +94,8 @@ h1 {
     flex-wrap: wrap;
     padding: 20px;
     background-color: #e5e5e5;
+    border: 0px;
+    border-radius: 3px;
 }
 
 .col-auto {
@@ -126,6 +128,8 @@ h1 {
 #title {
     background-color: #ff7100;
     text-align: center;
+    border: 0px;
+    border-radius: 3px;
 }
 /* END OF H1 BOX CUSTOMIZATION */
 
@@ -173,6 +177,19 @@ h1 {
 }
 /* END OF PERCENTAGE CONTAINER CUSTOMIZATION */
 
-#letter-grade {
+/* Start of Letter Grade Container customization */
+#letter-grade-container {
     background-color: #fff;
+    border: 0px;
+    border-radius: 3px;
 }
+/* END OF LETTER GRADE CONTAINER CUSTOMIZATION */
+
+/* Start of Letter Grade customization */
+#letter-grade {
+    background-color: #ff7100;
+    color: #fff;
+    border: 0px;
+    border-radius: 30px;
+}
+/* END OF LETTER GRADE CUSTOMIZATION */

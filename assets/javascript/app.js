@@ -41,6 +41,9 @@ var myQuestions = [
 var quizContainer = document.getElementById('trivia');
 var resultsContainer = document.getElementById('answers');
 var submitButton = document.getElementById('submit');
+var hidden = document.getElementById('letter-grade-container');
+
+hidden.style.display = 'none';
 
 generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
 
@@ -179,7 +182,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
             letterGrade.append('F');
 
         }
-        
+
     }
 
     showQuestions(questions, quizContainer);
@@ -188,6 +191,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
 
         stop();
         document.getElementById('submit').disabled = true;
+        hidden.style.display = 'block';
         showResults(questions, quizContainer, resultsContainer);
 
     }
@@ -225,9 +229,12 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
         update.innerHTML = "";
         update.append(currentTime);
         if (currentTime == '00:00') {
+
             stop();
             document.getElementById('submit').disabled = true;
+            hidden.style.display = 'block';
             showResults(questions, quizContainer, resultsContainer);
+
         }
 
     }
