@@ -5,6 +5,13 @@ body{
     color: #333;
 }
 
+h3 {
+    color: #484848;
+    text-align: center;
+    font-size: 100px;
+    font-family: monospace;
+}
+
 h2 {
     color: #484848;
 }
@@ -159,3 +166,13 @@ h1 {
     color: #484848;
 }
 /* END OF ANSWERS CUSTOMIZATION */
+
+/* Start of Percentage Container customization */
+#percentage-container {
+    background-color: #fff;
+}
+/* END OF PERCENTAGE CONTAINER CUSTOMIZATION */
+
+#letter-grade {
+    background-color: #fff;
+}

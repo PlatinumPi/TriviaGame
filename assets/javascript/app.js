@@ -25,6 +25,16 @@ var myQuestions = [
             c: 'Athens',
         },
         correctAnswer: 'c'
+    },
+    {
+        question: "What's the capital of Colorado?",
+        answers: {
+            a: 'Colorado Springs',
+            b: 'Denver',
+            c: 'Pueblo',
+            d: 'Greely',
+        },
+        correctAnswer: 'b'
     }
 ];
 
@@ -46,7 +56,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
             answers = [];
 
             for (letter in questions[i].answers) {
-                answers.push('<label class="container-check">' + '<input type="radio" name="question' + i + '" value="' + letter + '" class="listen">' + questions[i].answers[letter] + '<span class="checkmark"></span></label>');
+                answers.push('<label class="container-check">' + '<input type="radio" name="question' + i + '" value="' + letter + '">' + questions[i].answers[letter] + '<span class="checkmark"></span></label>');
             }
 
             output.push('<div class="question"><h2>' + questions[i].question + '</h2></div>'
@@ -63,6 +73,8 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
 
         var userAnswer = '';
         var numCorrect = 0;
+
+        var percentCorrect;
 
         for (var i = 0; i < questions.length; i++) {
 
@@ -85,7 +97,89 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
         }
 
         resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+        percentCorrect = (numCorrect / questions.length) * 100;
+        var letterGrade = document.getElementById('letter-grade');
+        var percantage = document.getElementById('percentage')
+        percantage.append(percentCorrect + "%");
 
+        if (percentCorrect <= 100 && percentCorrect >= 97) {
+
+            letterGrade.append('A+');
+
+        } 
+        
+        else if (percentCorrect < 97 && percentCorrect >= 94) {
+
+            letterGrade.append('A');
+
+        } 
+        
+        else if (percentCorrect < 94 && percentCorrect >= 90) {
+
+            letterGrade.append('A-');
+
+        } 
+        
+        else if (percentCorrect < 90 && percentCorrect >= 87) {
+
+            letterGrade.append('B+');
+
+        } 
+        
+        else if (percentCorrect < 87 && percentCorrect >= 84) {
+
+            letterGrade.append('B');
+
+        } 
+        
+        else if (percentCorrect < 84 && percentCorrect >= 80) {
+
+            letterGrade.append('B-');
+
+        } 
+        
+        else if (percentCorrect < 80 && percentCorrect >= 77) {
+
+            letterGrade.append('C+');
+
+        } 
+        
+        else if (percentCorrect < 77 && percentCorrect >= 74) {
+
+            letterGrade.append('C');
+
+        } 
+        
+        else if (percentCorrect < 74 && percentCorrect >= 70) {
+
+            letterGrade.append('C-');
+
+        } 
+        
+        else if (percentCorrect < 70 && percentCorrect >= 67) {
+
+            letterGrade.append('D+');
+
+        } 
+        
+        else if (percentCorrect < 67 && percentCorrect >= 64) {
+
+            letterGrade.append('D');
+
+        } 
+        
+        else if (percentCorrect < 64 && percentCorrect >= 60) {
+
+            letterGrade.append('D-');
+
+        } 
+        
+        else {
+
+            letterGrade.append('F');
+
+        }
+        
     }
 
     showQuestions(questions, quizContainer);
@@ -93,6 +187,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
     submitButton.onclick = function () {
 
         stop();
+        document.getElementById('submit').disabled = true;
         showResults(questions, quizContainer, resultsContainer);
 
     }
@@ -131,6 +226,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
         update.append(currentTime);
         if (currentTime == '00:00') {
             stop();
+            document.getElementById('submit').disabled = true;
             showResults(questions, quizContainer, resultsContainer);
         }
 
