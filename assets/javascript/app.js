@@ -2,9 +2,9 @@ var myQuestions = [
     {
         question: "What is the color of the sky?",
         answers: {
-            a: 'green',
-            b: 'blue',
-            c: 'purple'
+            a: 'Green',
+            b: 'Blue',
+            c: 'Purple'
         },
         correctAnswer: 'b'
     },
