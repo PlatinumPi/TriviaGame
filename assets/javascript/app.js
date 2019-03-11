@@ -46,7 +46,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
             answers = [];
 
             for (letter in questions[i].answers) {
-                answers.push('<label class="container-check">' + '<input type="radio" name="question' + i + '" value="' + letter + '">' + letter + ': ' + questions[i].answers[letter] + '<span class="checkmark"></span></label>');
+                answers.push('<label class="container-check">' + '<input type="radio" name="question' + i + '" value="' + letter + '">' + questions[i].answers[letter] + '<span class="checkmark"></span></label>');
             }
 
             output.push('<div class="question"><h2>' + questions[i].question + '</h2></div>'

@@ -122,13 +122,17 @@ h1 {
 }
 /* END OF H1 BOX CUSTOMIZATION */
 
+/* Start of Side customization */
 #side {
     background-color: #fff;
 }
+/* END OF SIDE CUSTOMIZATION */
 
+/* Start of Display Container customization */
 #display-container {
     text-align: center;
 }
+/* End of Display Container customization */
 
 /* Start of Submit Button customization */
 #submit{
