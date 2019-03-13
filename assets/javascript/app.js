@@ -4,7 +4,8 @@ var myQuestions = [
         answers: {
             a: 'Blue',
             b: 'Green',
-            c: 'Purple'
+            c: 'Purple',
+            d: 'Yellow',
         },
         correctAnswer: 'a'
     },
@@ -13,7 +14,8 @@ var myQuestions = [
         answers: {
             a: 'Bernhard Riemann',
             b: 'Albert Einstein',
-            c: 'Nikola Tesla'
+            c: 'Nikola Tesla',
+            d: 'Harry Potter',
         },
         correctAnswer: 'c'
     },
@@ -23,6 +25,7 @@ var myQuestions = [
             a: 'Rome',
             b: 'Norway',
             c: 'Athens',
+            d: 'Iceland',
         },
         correctAnswer: 'c'
     },
@@ -35,13 +38,154 @@ var myQuestions = [
             d: 'Greely',
         },
         correctAnswer: 'b'
+    },
+    {
+        question: "What is 2 + 2 * 5?",
+        answers: {
+            a: '20',
+            b: '13',
+            c: '18',
+            d: '12',
+        },
+        correctAnswer: 'd'
+    },
+    {
+        question: "What was the first blue pigment for paint called?",
+        answers: {
+            a: 'Ultramarine',
+            b: 'Aquamarine',
+            c: 'Egyptian Blue',
+            d: 'Royal Blue',
+        },
+        correctAnswer: 'c'
+    },
+    {
+        question: "Who was the Fourth President of the United States?",
+        answers: {
+            a: 'Thomas Jefferson',
+            b: 'George Washington',
+            c: 'James Monroe',
+            d: 'James Madison',
+        },
+        correctAnswer: 'd'
+    },
+    {
+        question: "Plessy v. Fergusson was a Supreme Court Case about which of the following:",
+        answers: {
+            a: 'Giving Supreme Court ability to strike down laws, statutes and government actions',
+            b: 'Denying African slaves citizenship',
+            c: 'Seperating blacks and whites in schools',
+            d: 'Seperate but equal segregation',
+        },
+        correctAnswer: 'd'
+    },
+    {
+        question: "What famous composer is known for the composition 'Allegro'?",
+        answers: {
+            a: 'Ludwig Van Beethoven',
+            b: 'Wolfgang Amadeus Mozart',
+            c: 'Frédéric Chopin',
+            d: 'Franz Liszt',
+        },
+        correctAnswer: 'b'
+    },
+    {
+        question: "What is the term for a star that is beyond the Red Giant Phase?",
+        answers: {
+            a: 'Variable Star',
+            b: 'White Dward',
+            c: 'Red Dwarf',
+            d: 'Exo-Star',
+        },
+        correctAnswer: 'a'
+    },
+    {
+        question: "What is the known medical term for someone who has sufferd a collapsed lung?",
+        answers: {
+            a: 'Dyspnea',
+            b: 'Pneumothorax',
+            c: 'Pulmonary Metastases',
+            d: 'Pulmonary Edema',
+        },
+        correctAnswer: 'b'
+    },
+    {
+        question: "What chemical, in the breakdown of alcohol, causes a flushed face and vomitting?",
+        answers: {
+            a: 'Actin',
+            b: 'Tryptophan',
+            c: 'Acetaldehyde',
+            d: 'Aspartate',
+        },
+        correctAnswer: 'c'
+    },
+    {
+        question: "What is a mole?",
+        answers: {
+            a: 'A cute fuzzy rodent',
+            b: 'Unit to define number of atoms in a substance',
+            c: 'The amount of a substance which has the same chemical units as there are atoms in exactly 12 grams of pure carbon 12',
+            d: 'The amount of a substance that has the same weight as 12 grams of pure carbon 12',
+        },
+        correctAnswer: 'c'
+    },
+    {
+        question: "What does the term 'déjà vu' translate to in English? (The next answer is 'C')",
+        answers: {
+            a: 'Already seen',
+            b: 'Already experienced',
+            c: 'Repeated experience',
+            d: 'Memory glitch',
+        },
+        correctAnswer: 'a'
+    },
+    {
+        question: "Are you enjoying this test?",
+        answers: {
+            a: 'Yes',
+            b: 'Yes',
+            c: 'Yes',
+            d: 'Yes',
+        },
+        correctAnswer: 'c'
+    },
+    {
+        question: "What is a mole?",
+        answers: {
+            a: 'A cute fuzzy rodent',
+            b: 'Unit to define number of atoms in a substance',
+            c: 'The amount of a substance which has the same chemical units as there are atoms in exactly 12 grams of pure carbon 12',
+            d: 'The amount of a substance that has the same weight as 12 grams of pure carbon 12',
+        },
+        correctAnswer: 'a'
+    },
+    {
+        question: "A Jew, a Priest and a man walk into a strip club. Which is correct?",
+        answers: {
+            a: 'Moses v. Jesus the Porno',
+            b: 'Nothing, they all drink a cup of tea.',
+            c: 'JESUS CHRIST, he is the man',
+            d: 'The Priest just divorced, the Jew saw money flying and the man had to pee',
+        },
+        correctAnswer: 'b'
+    },
+    {
+        question: "Click the right button:",
+        answers: {
+            a: 'I am not the button',
+            b: 'I am not the button',
+            c: 'B is not the button',
+            d: 'A is the button',
+        },
+        correctAnswer: 'b'
     }
 ];
 
 var quizContainer = document.getElementById('trivia');
 var resultsContainer = document.getElementById('answers');
 var submitButton = document.getElementById('submit');
-var hidden = document.getElementById('letter-grade-container');
+var hidden = document.getElementById('side');
+var hiddenMain = document.getElementById('main');
 
 hidden.style.display = 'none';
 
@@ -100,9 +244,11 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
         }
 
         resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
-        percentCorrect = (numCorrect / questions.length) * 100;
+        percentCorrect = Math.round((numCorrect / questions.length) * 100);
+
         var letterGrade = document.getElementById('letter-grade');
         var percantage = document.getElementById('percentage')
+
         percantage.append(percentCorrect + "%");
 
         if (percentCorrect <= 100 && percentCorrect >= 97) {
@@ -198,7 +344,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
 
     var intervalId;
     var clockRunning = false;
-    var time = (myQuestions.length) * 6;
+    var time = (myQuestions.length) * 15;
     var timeLeft = timeConverter(time);
 
     var display = document.getElementById('display');
