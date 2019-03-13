@@ -93,7 +93,7 @@ var myQuestions = [
         question: "What is the term for a star that is beyond the Red Giant Phase?",
         answers: {
             a: 'Variable Star',
-            b: 'White Dward',
+            b: 'White Dwarf',
             c: 'Red Dwarf',
             d: 'Exo-Star',
         },
@@ -152,7 +152,7 @@ var myQuestions = [
     {
         question: "What is a mole?",
         answers: {
-            a: 'A cute fuzzy rodent',
+            a: 'A cute fuzzy rodent.',
             b: 'Unit to define number of atoms in a substance',
             c: 'The amount of a substance which has the same chemical units as there are atoms in exactly 12 grams of pure carbon 12',
             d: 'The amount of a substance that has the same weight as 12 grams of pure carbon 12',
