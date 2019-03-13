@@ -83,17 +83,15 @@ h1 {
 .container {
     -ms-flex: 100%;
     flex: 100%;
-    padding: 30px;
+    padding: 0px;
     margin: 5px;
     background-color: #fff;
 }
 
 .row {
-    display: -ms-flexbox;
-    display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 0px;
     margin: 5px;
     background-color: #e5e5e5;
     border: 0px;
@@ -122,7 +120,7 @@ h1 {
 /* Start of Timer customization */
 #display {
     font-family: monospace;
-    font-size: 100px;
+    font-size: 300%;
     color: #ff7100;
 }
 /* END OF TIMER CUSTOMIZATION */
@@ -138,7 +136,7 @@ h1 {
 
 /* Start of Title Container Customization */
 #title-container {
-    background-color: #e5e5e5;
+    background-color: #ff7100;
 }
 /* END OF TITLE CONTAINER CUSTOMIZATION */
 
@@ -153,7 +151,7 @@ h1 {
     text-align: center;
     background-color: #fff;
     border: 0px;
-    border-radius: 3px;
+    border-radius: 30px;
 }
 /* END OF DISPLAY CONTAINER CUSTOMIZATION */
 
@@ -207,7 +205,3 @@ h1 {
     border-radius: 30px;
 }
 /* END OF LETTER GRADE CUSTOMIZATION */
-
-@media screen and (max-width: 526px) {
-
-}
